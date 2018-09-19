@@ -1,0 +1,34 @@
+@import 'src/assets/base.scss';
+
+// VARIABLE NESTING
+li {
+    background: pink;
+    div {
+        background: purple;
+    }
+}
+
+// FOR LOOP
+@for $i from 1 through 6 {
+    li.#{element+$i}{
+        background: lighten(#000, $i*10%);
+    }
+    @debug $i;
+}
+
+// Each
+$colors-map: (1:purple, 2:red, 3: green, 4: brown, 5:pink, 6:grey);
+@each $index, $color in $colors-map {
+    .#{element+$index} {
+        background-color: $color;
+    }
+}
+
+//Mixin
+li.element1{
+    @include giant-stuff();
+}
+
+li.element2{
+    @include giant-stuff(25);
+}
